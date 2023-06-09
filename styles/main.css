@@ -29,6 +29,32 @@ main {
 }
 .left {
   width: 30%;
+  padding: 20px 0px 20px 20px;
+}
+.todo-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+}
+.todo {
+  position: relative;
+  width: 500px;
+  height: 500px;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.week {
+  position: relative;
+  width: 500px;
+  height: 300px;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.right {
+  width: 70%;
   padding: 20px;
 }
 .calendar {
@@ -113,7 +139,6 @@ main {
   display: flex;
   justify-content: flex-end;
   width: 95%;
-  /* padding-right: 75px; */
 }
 
 .today-btn {
