@@ -20,7 +20,7 @@ main {
   width: 1800px;
   min-height: 1000px;
   margin: 0 auto;
-  padding: 5px;
+  padding: 10px 10px;
   color: #fff;
   display: flex;
 
@@ -37,9 +37,7 @@ main {
   height: 100%;
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  color: #878895;
+  color: #000000;
   border-radius: 5px;
   background-color: #fff;
 }
@@ -47,10 +45,10 @@ main {
   width: 100%;
   height: 150px;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 50px;
-  font-size: 1.2rem;
+  align-items: space-between;
+  justify-content: center;
+  padding: 0 10px 10px 0;
+  font-size: 3rem;
   font-weight: 500;
   text-transform: capitalize;
 }
@@ -66,43 +64,52 @@ main {
   position: relative;
   width: 70%;
   min-height: 100%;
-  padding: 20px 0;
+  padding: 20px 20px;
 }
 .calendar .weekdays {
   width: 100%;
   height: 100px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 0 20px;
-  font-size: 1rem;
+  justify-content: center;
+  padding: 0 10px 0 0;
+  font-size: 2rem;
   font-weight: 500;
   text-transform: capitalize;
 }
-.weekdays div {
-  width: 14.28%;
-  height: 100%;
+.calendar .weekdays div {
+  width: 13%;
+  height: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+  color: #010000;
+  border: 1px solid white;
 }
 .calendar .days {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  padding: 0 20px;
+  justify-content: center;
+  padding: 0 10px 10px 0;
   font-size: 1rem;
   font-weight: 500;
   margin-bottom: 20px;
 }
 .calendar .days .day {
-  width: 14.28%;
-  height: 90px;
+  width: 13%;
+  height: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  color: var(--primary-clr);
-  border: 1px solid #f5f5f5;
+  color: #010000;
+  border: 1px solid #010000;
+}
+
+.goto-today {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 25px;
 }
