@@ -1,28 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <script src="main.js"></script>
-    <link rel="stylesheet" href="/styles/footer.css">
-    <link rel="stylesheet" href="/styles/header.css">
-    <link rel="stylesheet" href="/styles/main.css">
-    <link rel="stylesheet" href="/styles/sidebar.css">
-    <link href="/dist/output.css" rel="stylesheet">
-    scr
-  </head>
-  <body>
-    
-    <header class="item-a"></header>
 
-    <main class="item-b"></main>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <script src="main.js"></script>
+  <link rel="stylesheet" href="/styles/footer.css">
+  <link rel="stylesheet" href="/styles/header.css">
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="stylesheet" href="/styles/sidebar.css">
+  <link href="/dist/output.css" rel="stylesheet">
+</head>
 
-    <sidebar class="item-c"></sidebar>
+<body>
 
-    <footer class="item-d"></footer>
+  <header class="item-a"></header>
 
-  </body>
+  <main class="item-b">
+    <div class="container">
+      <div class="left">
+      </div>
+      <div class="right">
+        <div class="calendar">
+          <div class="month">
+            <i class="tailwind < prev"></i>
+            <div class="date">Maj 2023</div>
+            <i class="tailwind > next"></i>
+          </div>
+          <div class="weekdays">
+            <div>Sön</div>
+            <div>Mån</div>
+            <div>Tis</div>
+            <div>Ons</div>
+            <div>Tor</div>
+            <div>Fre</div>
+            <div>Lör</div>
+          </div>
+          <div class="days"></div>
+          <div class="goto-today">
+            <div class="goto">
+              <input type="text" placeholder="mm/yyyy" class="date-input" />
+              <button class="goto-btn">Go</button>
+            </div>
+            <button class="today-btn">Today</button>
+          </div>
+        </div>
+      </div>
+  </main>
+
+  <sidebar class="item-c"></sidebar>
+
+  <footer class="item-d"></footer>
+
+</body>
+
 </html>
-    
