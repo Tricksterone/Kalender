@@ -10,12 +10,33 @@
     <link rel="stylesheet" href="/styles/header.css">
     <link rel="stylesheet" href="/styles/main.css">
     <link rel="stylesheet" href="/styles/sidebar.css">
-    <link href="/dist/output.css" rel="stylesheet">
-    scr
+    <link rel="stylesheet" href="/dist/output.css">
   </head>
   <body>
     
-    <header class="item-a"></header>
+    <header class="bg-black">    
+      <nav class="relative container mx-auto p-2">
+        <div class="flex items-center justify-between text-stone-300">
+          <div class="basis-2/5">
+            <p>{date & time}</p>
+          </div>
+          <div class="hidden md:flex space-x-6">
+            <a href="#">Länk 1</a>
+            <a href="#">Länk 2</a>
+            <a href="#">Länk 3</a>
+          </div>
+          <div class="hidden md:flex">
+            <p>Inloggad som <strong><a href="/">{username}</a></strong></p>
+          </div>
+          <a href="#" class="p-1 px-6 text-black bg-white
+          rounded-full baseline
+          hidden md:block"> 
+          Logga ut
+          </a>
+        </div>
+      </nav>
+    </header>
+
 
     <main class="item-b"></main>
 
