@@ -28,7 +28,6 @@ main {
   background-color: #010000;
 }
 .left {
-  width: 30%;
   padding: 20px 0px 20px 20px;
 }
 .todo-container {
@@ -54,7 +53,7 @@ main {
 }
 
 .right {
-  width: 70%;
+  flex: 1;
   padding: 20px;
 }
 .calendar {
