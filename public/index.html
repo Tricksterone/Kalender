@@ -1,42 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <script src="main.js"></script>
-    <link rel="stylesheet" href="/styles/footer.css">
-    <link rel="stylesheet" href="/styles/main.css">
-    <link rel="stylesheet" href="/styles/sidebar.css">
-    <link rel="stylesheet" href="/dist/output.css">
-    <script src="todos.js"></script>
-    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"/>
-  </head>
-  <body>
-    
-    <!-- TO-DO: lägg till funktioner, ändra om ordningen lite kanske, lägg till hamburgermeny på små skärmar -->
-    <!-- Hade varit snyggt med en liten liten profilbild kanske vid namnet. Fixa logga ut-knappen och kanske ha någon mer knapp?  -->
-    <header class="bg-black">    
-      <nav class="relative container mx-auto p-2">
-        <div class="flex items-center justify-between text-stone-300">
-          <div class="basis-1/5">
-            <p>{date & time}</p>
-          </div>
-          <div class="hidden md:flex space-x-6">
-            <a href="#" class="text-dark-cyan hover:underline hover:text-light-cyan hover:font-extrabold">Placeholder</a>
-            <a href="#" class="text-dark-cyan hover:underline hover:text-light-cyan hover:font-extrabold">Placeholder</a>
-          </div>
-          <div class="hidden md:flex">
-            <p>Inloggad som <strong><a href="/" class="text-dark-cyan hover:underline hover:text-light-cyan hover:font-extrabold">{username}</a></strong></p>
-          </div>
-          <a href="#" class="p-1 px-6 text-black bg-white rounded-full baseline hidden md:block"> 
-            Logga ut
-          </a>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <script src="main.js"></script>
+  <link rel="stylesheet" href="/styles/footer.css">
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="stylesheet" href="/styles/sidebar.css">
+  <link rel="stylesheet" href="/styles/dist/output.css">
+  <script src="todos.js"></script>
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+</head>
+
+<body>
+
+  <!-- TO-DO: lägg till funktioner, ändra om ordningen lite kanske, lägg till hamburgermeny på små skärmar -->
+  <!-- Hade varit snyggt med en liten liten profilbild kanske vid namnet. Fixa logga ut-knappen och kanske ha någon mer knapp?  -->
+  <header class="bg-black">
+    <nav class="relative container mx-auto p-2">
+      <div class="flex items-center justify-between text-stone-300">
+        <div class="basis-1/5">
+          <p>{date & time}</p>
         </div>
-      </nav>
-    </header>
-    
+        <div class="hidden md:flex space-x-6">
+          <a href="#" class="text-dark-cyan hover:underline hover:text-light-cyan hover:font-extrabold">Placeholder</a>
+          <a href="#" class="text-dark-cyan hover:underline hover:text-light-cyan hover:font-extrabold">Placeholder</a>
+        </div>
+        <div class="hidden md:flex">
+          <p>Inloggad som <strong><a href="/"
+                class="text-dark-cyan hover:underline hover:text-light-cyan hover:font-extrabold">{username}</a></strong>
+          </p>
+        </div>
+        <a href="#" class="p-1 px-6 text-black bg-white rounded-full baseline hidden md:block">
+          Logga ut
+        </a>
+      </div>
+    </nav>
+  </header>
+
   <main class="item-b">
     <div class="main-container">
       <div class="left">
@@ -59,28 +63,28 @@
             <ul>
               <li>
                 <a href="#">
-                <i class="bx bx-pencil"></i>
-                <span class="nav-item">Create Todo</span>
-              </a>
-              <span class="tooltip">Create Todo</span>
-            </li>
-            <li>
-              <a href="#">
-                <i class="bx bx-clipboard"></i>
-                <span class="nav-item">Today's Todo's</span>
-              </a>
-              <span class="tooltip">Today's Todo's</span>
-            </li>
-            <li>
-              <a href="#">
-                <i class="bx bx-list-check"></i>
-                <span class="nav-item">weekly Todo's</span>
-              </a>
-              <span class="tooltip">week Todo's</span>
-            </li>
-          </ul>
+                  <i class="bx bx-pencil"></i>
+                  <span class="nav-item">Create Todo</span>
+                </a>
+                <span class="tooltip">Create Todo</span>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="bx bx-clipboard"></i>
+                  <span class="nav-item">Today's Todo's</span>
+                </a>
+                <span class="tooltip">Today's Todo's</span>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="bx bx-list-check"></i>
+                  <span class="nav-item">weekly Todo's</span>
+                </a>
+                <span class="tooltip">week Todo's</span>
+              </li>
+            </ul>
+          </div>
         </div>
-      </div>
       </div>
       <div class="right">
         <div class="calendar">
@@ -148,4 +152,5 @@
   <footer class="item-d"></footer>
 
 </body>
+
 </html>

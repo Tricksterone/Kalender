@@ -5,6 +5,7 @@
   "scripts": {
     "postinstall": "plugga init",
     "dev": "cd public && vite --open",
+    "tailwind": "npx tailwindcss -i ./src/input.css -o ./public/styles/dist/output.css --watch",
     "update": "plugga update",
     "test": "plugga test"
   },
