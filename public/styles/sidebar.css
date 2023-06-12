@@ -1,5 +1,4 @@
 *{
-
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -139,6 +138,8 @@
 }
 .sidebar ul li:hover .tooltip {
     opacity: 1;
+    color: black;
+    font-weight: 600;
 }
 
 .sidebar.active ul li .tooltip {
