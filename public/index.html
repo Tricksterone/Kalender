@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="/styles/main.css">
     <link rel="stylesheet" href="/styles/sidebar.css">
     <link rel="stylesheet" href="/dist/output.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"/>
   </head>
   <body>
     
@@ -34,14 +35,116 @@
         </div>
       </nav>
     </header>
-
-
-    <main class="item-b"></main>
-
-    <sidebar class="item-c"></sidebar>
-
-    <footer class="item-d"></footer>
-
-  </body>
-</html>
     
+  <main class="item-b">
+    <div class="container">
+      <div class="left">
+        <div class="sidebar">
+          <div class="top">
+            <div class="logo">
+              <i class="bx bxs-calendar-event"></i>
+              <span>Todo's N Stuff</span>
+            </div>
+            <div>
+              <i class="bx bx-menu" id="btn"></i>
+            </div>
+            <div class="user">
+              <img src="../Png/DALL·E 2023-06-09 13.32.03.png" alt="VoodoMask" class="user-img" />
+              <div>
+                <p class="bold">You're name</p>
+                <p>Status</p>
+              </div>
+            </div>
+            <ul>
+              <li>
+                <a href="#">
+                <i class="bx bx-pencil"></i>
+                <span class="nav-item">Create Todo</span>
+              </a>
+              <span class="tooltip">Create Todo</span>
+            </li>
+            <li>
+              <a href="#">
+                <i class="bx bx-clipboard"></i>
+                <span class="nav-item">Today's Todo's</span>
+              </a>
+              <span class="tooltip">Today's Todo's</span>
+            </li>
+            <li>
+              <a href="#">
+                <i class="bx bx-list-check"></i>
+                <span class="nav-item">weekly Todo's</span>
+              </a>
+              <span class="tooltip">week Todo's</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      </div>
+      <div class="right">
+        <div class="calendar">
+          <div class="month">
+            <i class="tailwind">prev</i>
+            <div class="date">Maj 2023</div>
+            <i class="tailwind">next</i>
+          </div>
+          <div class="weekdays">
+            <div>Mån</div>
+            <div>Tis</div>
+            <div>Ons</div>
+            <div>Tor</div>
+            <div>Fre</div>
+            <div>Lör</div>
+            <div>Sön</div>
+          </div>
+          <div class="days">
+            <!-- Detta ska bytas ut sedan med JS -->
+            <div class="day prev-date">28</div>
+            <div class="day prev-date">29</div>
+            <div class="day prev-date">30</div>
+            <div class="day prev-date">31</div>
+            <div class="day">1</div>
+            <div class="day">2</div>
+            <div class="day">3</div>
+            <div class="day">4</div>
+            <div class="day">5</div>
+            <div class="day">6</div>
+            <div class="day">7</div>
+            <div class="day">8</div>
+            <div class="day">9</div>
+            <div class="day">10</div>
+            <div class="day">11</div>
+            <div class="day">12</div>
+            <div class="day">13</div>
+            <div class="day">14</div>
+            <div class="day">15</div>
+            <div class="day">16</div>
+            <div class="day">17</div>
+            <div class="day">18</div>
+            <div class="day">19</div>
+            <div class="day">20</div>
+            <div class="day">21</div>
+            <div class="day">22</div>
+            <div class="day">23</div>
+            <div class="day">24</div>
+            <div class="day">25</div>
+            <div class="day">26</div>
+            <div class="day">27</div>
+            <div class="day">28</div>
+            <div class="day">29</div>
+            <div class="day">30</div>
+            <div class="day next-day">1</div>
+          </div>
+          <div class="goto-today">
+            <button type="button" class="today-btn">Idag</button>
+          </div>
+        </div>
+      </div>
+  </main>
+
+  <sidebar class="item-c"></sidebar>
+
+  <footer class="item-d"></footer>
+
+</body>
+</html>

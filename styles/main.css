@@ -1,0 +1,159 @@
+html {
+  height: 100vh;
+  width: auto;
+  margin-top: 0;
+  margin-left: 0;
+}
+
+main {
+  padding: 20px 20px;
+  position: relative;
+  max-height: 100%;
+  width: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+}
+.container {
+  position: relative;
+  width: 1800px;
+  min-height: 1000px;
+  margin: 0 auto;
+  padding: 10px 10px;
+  color: #fff;
+  display: flex;
+
+  border-radius: 10px;
+  background-color: #010000;
+}
+.left {
+  padding: 20px 0px 20px 20px;
+}
+.todo-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+}
+.todo {
+  position: relative;
+  width: 500px;
+  height: 500px;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.week {
+  position: relative;
+  width: 500px;
+  height: 300px;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.right {
+  flex: 1;
+  padding: 20px;
+}
+.calendar {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  color: #000000;
+  border-radius: 5px;
+  background-color: #fff;
+}
+.calendar .month {
+  width: 100%;
+  height: 150px;
+  display: flex;
+  align-items: space-between;
+  justify-content: center;
+  padding: 0 10px 10px 0;
+  font-size: 3rem;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+.calendar .month .prev,
+.calendar .month .next {
+  cursor: pointer;
+}
+.calendar .month .prev:hover,
+.calendar .month .next:hover {
+  color: var(--primary-clr);
+}
+.container .right {
+  position: relative;
+  width: 70%;
+  min-height: 100%;
+  padding: 20px 20px;
+}
+.calendar .weekdays {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 10px 0 0;
+  font-size: 2rem;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+.calendar .weekdays div {
+  width: 13%;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #010000;
+  border: 1px solid white;
+}
+.calendar .days {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0 10px 10px 0;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+.calendar .days .day {
+  width: 13%;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #010000;
+  border: 1px solid #010000;
+}
+
+.goto-today {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  width: 95%;
+}
+
+.today-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 1.7rem;
+  font-weight: 500;
+  color: #ffffff;
+  background-color: #3b71ca;
+  border-radius: 0.4rem;
+  box-shadow: 0 4px 9px -4px rgba(59, 113, 202, 0.5);
+  transition: background-color 150ms ease-in-out, box-shadow 150ms ease-in-out;
+  outline: none;
+  border: none;
+}
+
+.today-btn:hover {
+  cursor: pointer;
+}
