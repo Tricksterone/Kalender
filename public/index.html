@@ -1,25 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
-  <script src="main.js"></script>
-  <script src="todos.js"></script>
-  <link rel="stylesheet" href="/styles/footer.css">
-  <link rel="stylesheet" href="/styles/header.css">
-  <link rel="stylesheet" href="/styles/main.css">
-  <link rel="stylesheet" href="/styles/sidebar.css">
-  <link href="/dist/output.css" rel="stylesheet">
-  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"/>
-</head>
-
-<body>
-
-  <header class="item-a"></header>
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="main.js"></script>
+    <link rel="stylesheet" href="/styles/footer.css">
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/sidebar.css">
+    <link rel="stylesheet" href="/dist/output.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"/>
+  </head>
+  <body>
+    
+    <!-- TO-DO: lägg till funktioner, ändra om ordningen lite kanske, lägg till hamburgermeny på små skärmar -->
+    <!-- Hade varit snyggt med en liten liten profilbild kanske vid namnet. Fixa logga ut-knappen och kanske ha någon mer knapp?  -->
+    <header class="bg-black">    
+      <nav class="relative container mx-auto p-2">
+        <div class="flex items-center justify-between text-stone-300">
+          <div class="basis-1/5">
+            <p>{date & time}</p>
+          </div>
+          <div class="hidden md:flex space-x-6">
+            <a href="#" class="text-dark-cyan hover:underline hover:text-light-cyan hover:font-extrabold">Placeholder</a>
+            <a href="#" class="text-dark-cyan hover:underline hover:text-light-cyan hover:font-extrabold">Placeholder</a>
+          </div>
+          <div class="hidden md:flex">
+            <p>Inloggad som <strong><a href="/" class="text-dark-cyan hover:underline hover:text-light-cyan hover:font-extrabold">{username}</a></strong></p>
+          </div>
+          <a href="#" class="p-1 px-6 text-black bg-white rounded-full baseline hidden md:block"> 
+            Logga ut
+          </a>
+        </div>
+      </nav>
+    </header>
+    
   <main class="item-b">
     <div class="container">
       <div class="left">
