@@ -133,6 +133,11 @@ main {
   border: 1px solid #010000;
 }
 
+.calendar .days .day:hover{
+  border-width: 0.3rem;
+  border-color: #3b71ca;
+}
+
 .goto-today {
   position: relative;
   display: flex;
