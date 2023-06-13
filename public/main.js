@@ -5,4 +5,5 @@ function main() {
   // Init today view
   initTodosList();
   // Init calendar
+  initHighlightCurrentDay();
 }
