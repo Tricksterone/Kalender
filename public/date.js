@@ -2,6 +2,7 @@ function initHighlightCurrentDay() {
   highlightCurrentDay();
   generateMonths();
   showMonths();
+  selectedDay();
 }
 
 function highlightCurrentDay() {
@@ -32,6 +33,15 @@ function highlightCurrentDay() {
   }
 }
 
+function selectedDay() {
+  const selectedElements = document.getElementsByClassName("selected");
+  if (selectedElements.length > 0) {
+    selectedElements[0].classList.remove("selected");
+  }
+
+  const clickedElement = event.target;
+  clickedElement.classList.add("selected");
+}
 // Vill vi ha denna månaderna separata från dagarna??
 function generateMonths() {
   var calendar = document.getElementById("calendar");

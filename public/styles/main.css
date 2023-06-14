@@ -133,9 +133,13 @@ main {
   border: 1px solid #010000;
 }
 
-.calendar .days .day:hover{
+.calendar .days .day:hover {
   border-width: 0.3rem;
   border-color: #3b71ca;
+}
+
+.calendar .days .day.selected {
+  background-color: #3b71ca;
 }
 
 .goto-today {
