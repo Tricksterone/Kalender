@@ -56,7 +56,7 @@ function highlightCurrentDay() {
   }
 }
 
-function selectedDay() {
+function selectedDay(event) {
   const selectedElements = document.getElementsByClassName("selected");
   if (selectedElements.length > 0) {
     selectedElements[0].classList.remove("selected");
@@ -65,6 +65,12 @@ function selectedDay() {
   const clickedElement = event.target;
   clickedElement.classList.add("selected");
 }
+
+document.addEventListener("click", function (event) {
+  if (event.target.classList.contains("day")) {
+    selectedDay(event);
+  }
+});
 
 function generateMonths() {
   return [
