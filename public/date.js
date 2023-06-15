@@ -1,11 +1,20 @@
-var currentMonth = new Date().getMonth();
-var currentYear = new Date().getFullYear();
+let currentMonth = new Date().getMonth();
+let currentYear = new Date().getFullYear();
 
-function initHighlightCurrentDay() {
-  showMonths();
+function initCalendar() {
+  showActiveMonth();
   highlightCurrentDay();
-  nextMonth();
-  previousMonth();
+}
+
+function renderCalendar() {
+  // 1. Hämta den först dagen i den aktiva månaden.
+  const date = new Date(currentYear, currentMonth, 1);
+  // 2. Vilken veckodag är det?
+  const weekday = date.getDay(); // 1 = Måndag, 2 = Tisdag, 3 = Onsdag, 4 = Torsdag, 5 = Fredag, 6 = Lördag, 0 = Söndag
+  // 3. Skapa tomma divar för att fylla ut veckan.
+  // for (let i = 0)
+  // 4. Hur många dagar har månaden?
+  // 5. Skapa divar med dag i.
 }
 
 function highlightCurrentDay() {
@@ -63,7 +72,7 @@ function generateMonths() {
   ];
 }
 
-function showMonths() {
+function showActiveMonth() {
   var monthContainer = document.getElementById("calendarMonths");
   var months = generateMonths();
   monthContainer.innerHTML = months[currentMonth] + " " + currentYear;
@@ -72,11 +81,11 @@ function showMonths() {
 function nextMonth() {
   currentYear = currentMonth === 11 ? currentYear + 1 : currentYear;
   currentMonth = (currentMonth + 1) % 12;
-  showMonths();
+  showActiveMonth();
 }
 
 function previousMonth() {
   currentYear = currentMonth === 0 ? currentYear - 1 : currentYear;
   currentMonth = currentMonth === 0 ? 11 : currentMonth - 1;
-  showMonths();
+  showActiveMonth();
 }
