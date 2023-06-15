@@ -1,9 +1,20 @@
 let currentMonth = new Date().getMonth();
 let currentYear = new Date().getFullYear();
 
+document.addEventListener("DOMContentLoaded", initCalendar);
+
 function initCalendar() {
   showActiveMonth();
   highlightCurrentDay();
+  addEventListeners();
+}
+
+function addEventListeners() {
+  let nextButton = document.getElementById("next");
+  let previousButton = document.getElementById("prev");
+
+  nextButton.addEventListener("click", nextMonth);
+  previousButton.addEventListener("click", previousMonth);
 }
 
 function renderCalendar() {
@@ -45,7 +56,7 @@ function highlightCurrentDay() {
   }
 }
 
-function selectedDay() {
+function selectedDay(event) {
   const selectedElements = document.getElementsByClassName("selected");
   if (selectedElements.length > 0) {
     selectedElements[0].classList.remove("selected");
@@ -54,6 +65,12 @@ function selectedDay() {
   const clickedElement = event.target;
   clickedElement.classList.add("selected");
 }
+
+document.addEventListener("click", function (event) {
+  if (event.target.classList.contains("day")) {
+    selectedDay(event);
+  }
+});
 
 function generateMonths() {
   return [
@@ -73,8 +90,8 @@ function generateMonths() {
 }
 
 function showActiveMonth() {
-  var monthContainer = document.getElementById("calendarMonths");
-  var months = generateMonths();
+  const monthContainer = document.getElementById("calendarMonths");
+  const months = generateMonths();
   monthContainer.innerHTML = months[currentMonth] + " " + currentYear;
 }
 
