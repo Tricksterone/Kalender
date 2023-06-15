@@ -90,9 +90,9 @@
       <div class="right">
         <div class="calendar">
           <div class="month flex items-center">
-            <i class="bx bx-chevron-left prev" onclick="previousMonth()"></i>
+            <i class="bx bx-chevron-left prev" id="prev"></i>
             <div class="active-month" id="calendarMonths"></div>
-            <i class="bx bx-chevron-right next" onclick="nextMonth()"></i>
+            <i class="bx bx-chevron-right next" id="next"></i>
           </div>
           <div class="weekdays">
             <div>Mån</div>
@@ -104,7 +104,7 @@
             <div>Sön</div>
           </div>
           <div id="calendar">
-            <div class="days selected" id="selected" onclick="selectedDay()">
+            <div class="days selected" id="selected">
               <!-- Detta ska bytas ut sedan med JS -->
               <div class="day prev-date">28</div>
               <div class="day prev-date">29</div>
@@ -125,7 +125,7 @@
               <div class="day">12</div>
               <div class="day">13</div>
               <div class="day">14</div>
-              <div class="day">15</div>
+              <div class="day event">15</div>
               <div class="day">16</div>
               <div class="day">17</div>
               <div class="day">18</div>

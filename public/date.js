@@ -1,9 +1,20 @@
 let currentMonth = new Date().getMonth();
 let currentYear = new Date().getFullYear();
 
+document.addEventListener("DOMContentLoaded", initCalendar);
+
 function initCalendar() {
   showActiveMonth();
   highlightCurrentDay();
+  addEventListeners();
+}
+
+function addEventListeners() {
+  let nextButton = document.getElementById("next");
+  let previousButton = document.getElementById("prev");
+
+  nextButton.addEventListener("click", nextMonth);
+  previousButton.addEventListener("click", previousMonth);
 }
 
 function renderCalendar() {
@@ -73,8 +84,8 @@ function generateMonths() {
 }
 
 function showActiveMonth() {
-  var monthContainer = document.getElementById("calendarMonths");
-  var months = generateMonths();
+  const monthContainer = document.getElementById("calendarMonths");
+  const months = generateMonths();
   monthContainer.innerHTML = months[currentMonth] + " " + currentYear;
 }
 
