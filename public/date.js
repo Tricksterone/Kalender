@@ -1,8 +1,11 @@
+var currentMonth = new Date().getMonth();
+var currentYear = new Date().getFullYear();
+
 function initHighlightCurrentDay() {
-  highlightCurrentDay();
-  generateMonths();
   showMonths();
-  selectedDay();
+  highlightCurrentDay();
+  nextMonth();
+  previousMonth();
 }
 
 function highlightCurrentDay() {
@@ -42,12 +45,9 @@ function selectedDay() {
   const clickedElement = event.target;
   clickedElement.classList.add("selected");
 }
-// Vill vi ha denna månaderna separata från dagarna??
-function generateMonths() {
-  var calendar = document.getElementById("calendar");
-  var lang = calendar.getAttribute("data-lang");
 
-  var months = [
+function generateMonths() {
+  return [
     "January",
     "February",
     "March",
@@ -61,15 +61,22 @@ function generateMonths() {
     "November",
     "December",
   ];
-
-  return months;
 }
 
 function showMonths() {
   var monthContainer = document.getElementById("calendarMonths");
-  var currentMonth = new Date().getMonth();
-  var currentYear = new Date().getFullYear();
-
   var months = generateMonths();
   monthContainer.innerHTML = months[currentMonth] + " " + currentYear;
+}
+
+function nextMonth() {
+  currentYear = currentMonth === 11 ? currentYear + 1 : currentYear;
+  currentMonth = (currentMonth + 1) % 12;
+  showMonths();
+}
+
+function previousMonth() {
+  currentYear = currentMonth === 0 ? currentYear - 1 : currentYear;
+  currentMonth = currentMonth === 0 ? 11 : currentMonth - 1;
+  showMonths();
 }
