@@ -89,65 +89,72 @@
       </div>
       <div class="right">
         <div class="calendar">
-          <div class="month">
-            <i class="tailwind">prev</i>
+          <div class="month inline-flex items-center space-x-4">
+            <button
+              class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded text-sm"
+              onclick="previousMonth()">
+              Förra
+            </button>
             <div class="active-month" id="calendarMonths"></div>
-            <i class="tailwind">next</i>
-          </div>
-          <div class="weekdays">
-            <div>Mån</div>
-            <div>Tis</div>
-            <div>Ons</div>
-            <div>Tor</div>
-            <div>Fre</div>
-            <div>Lör</div>
-            <div>Sön</div>
-          </div>
-          <div id="calendar">
-            <div class="days" id="selected" onclick="selectedDay()">
-              <!-- Detta ska bytas ut sedan med JS -->
-              <div class="day prev-date">28</div>
-              <div class="day prev-date">29</div>
-              <div class="day prev-date">30</div>
-              <div class="day prev-date">31</div>
-              <div class="day">1</div>
-              <div class="day">2</div>
-              <div class="day">3</div>
-              <div class="day">4</div>
-              <div class="day">5</div>
-              <div class="day">6</div>
-              <div class="day">7</div>
-              <div class="day">8</div>
-              <div class="day">9</div>
-              <div class="day">10</div>
-              <div class="day">11</div>
-              <div class="day">12</div>
-              <div class="day">13</div>
-              <div class="day">14</div>
-              <div class="day">15</div>
-              <div class="day">16</div>
-              <div class="day">17</div>
-              <div class="day">18</div>
-              <div class="day">19</div>
-              <div class="day">20</div>
-              <div class="day">21</div>
-              <div class="day">22</div>
-              <div class="day">23</div>
-              <div class="day">24</div>
-              <div class="day">25</div>
-              <div class="day">26</div>
-              <div class="day">27</div>
-              <div class="day">28</div>
-              <div class="day">29</div>
-              <div class="day">30</div>
-              <div class="day next-day">1</div>
+            <button
+              class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded text-sm"
+              onclick="nextMonth()">
+              Nästa
+            </button>
+            <div class="weekdays">
+              <div>Mån</div>
+              <div>Tis</div>
+              <div>Ons</div>
+              <div>Tor</div>
+              <div>Fre</div>
+              <div>Lör</div>
+              <div>Sön</div>
+            </div>
+            <div id="calendar">
+              <div class="days" id="selected" onclick="selectedDay()">
+                <!-- Detta ska bytas ut sedan med JS -->
+                <div class="day prev-date">28</div>
+                <div class="day prev-date">29</div>
+                <div class="day prev-date">30</div>
+                <div class="day prev-date">31</div>
+                <div class="day">1</div>
+                <div class="day">2</div>
+                <div class="day">3</div>
+                <div class="day">4</div>
+                <div class="day">5</div>
+                <div class="day">6</div>
+                <div class="day">7</div>
+                <div class="day">8</div>
+                <div class="day">9</div>
+                <div class="day">10</div>
+                <div class="day">11</div>
+                <div class="day">12</div>
+                <div class="day">13</div>
+                <div class="day">14</div>
+                <div class="day">15</div>
+                <div class="day">16</div>
+                <div class="day">17</div>
+                <div class="day">18</div>
+                <div class="day">19</div>
+                <div class="day">20</div>
+                <div class="day">21</div>
+                <div class="day">22</div>
+                <div class="day">23</div>
+                <div class="day">24</div>
+                <div class="day">25</div>
+                <div class="day">26</div>
+                <div class="day">27</div>
+                <div class="day">28</div>
+                <div class="day">29</div>
+                <div class="day">30</div>
+                <div class="day next-day">1</div>
+              </div>
+            </div>
+            <div class="goto-today">
+              <button type="button" class="today-btn">Idag</button>
             </div>
           </div>
-          <div class="goto-today">
-            <button type="button" class="today-btn">Idag</button>
-          </div>
         </div>
-      </div>
   </main>
 
   <sidebar class="item-c"></sidebar>
