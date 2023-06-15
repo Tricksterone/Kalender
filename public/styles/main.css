@@ -133,6 +133,23 @@ main {
   border: 1px solid #010000;
 }
 
+.calendar .days .event {
+  position: relative;
+}
+.calendar .days .event::after {
+  content: "";
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  width: 75%;
+  height: 12px;
+  border-radius: 30px;
+  transform: translate(-50%);
+  background-color: #3b71ca;
+}
+.calendar .days .day.day.selected::after{
+  background-color: #fff;
+}
 .calendar .days .prev-date,
 .calendar .days .next-day {
   color: #b3b3b3;
@@ -145,6 +162,7 @@ main {
 
 .calendar .days .day.selected {
   background-color: #3b71ca;
+  color: #fff;
 }
 
 .goto-today {
