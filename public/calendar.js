@@ -7,7 +7,6 @@ function initCalendar() {
   showActiveMonth();
   addEventListeners();
   renderCalendar();
-  highlightCurrentDay();
 }
 
 function addEventListeners() {
@@ -55,6 +54,13 @@ function renderCalendar() {
     dayElement.classList.add("day", "next-date");
     dayElement.textContent = i;
     calendarDays.appendChild(dayElement);
+  }
+
+  if (
+    currentMonth === new Date().getMonth() &&
+    currentYear === new Date().getFullYear()
+  ) {
+    highlightCurrentDay();
   }
 }
 
