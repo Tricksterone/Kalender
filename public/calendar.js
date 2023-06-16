@@ -5,9 +5,9 @@ document.addEventListener("DOMContentLoaded", initCalendar);
 
 function initCalendar() {
   showActiveMonth();
-  highlightCurrentDay();
   addEventListeners();
   renderCalendar();
+  highlightCurrentDay();
 }
 
 function addEventListeners() {
@@ -20,21 +20,26 @@ function addEventListeners() {
 
 function renderCalendar() {
   const calendarDays = document.getElementById("calendarDays");
-  calendarDays.innerHTML = ""; // Clear any existing calendar days
+  calendarDays.innerHTML = "";
 
   const date = new Date(currentYear, currentMonth, 1);
-  const firstDay = date.getDay(); // Get the first day of the month
-  const totalDays = new Date(currentYear, currentMonth + 1, 0).getDate(); // Get the total number of days in the month
+  let firstDay = date.getDay() - 1;
+  if (firstDay === -1) {
+    firstDay = 6;
+  }
+  const totalDays = new Date(currentYear, currentMonth + 1, 0).getDate();
 
-  // Render the previous month's days
+  // Förra månaden
+  const prevMonth = new Date(currentYear, currentMonth, 0);
+  const prevMonthTotalDays = prevMonth.getDate();
   for (let i = firstDay; i > 0; i--) {
     const dayElement = document.createElement("div");
     dayElement.classList.add("day", "prev-date");
-    dayElement.textContent = totalDays - i + 1;
+    dayElement.textContent = prevMonthTotalDays - (firstDay + i);
     calendarDays.appendChild(dayElement);
   }
 
-  // Render the current month's days
+  // Aktuella månaden
   for (let i = 1; i <= totalDays; i++) {
     const dayElement = document.createElement("div");
     dayElement.classList.add("day");
@@ -42,11 +47,11 @@ function renderCalendar() {
     calendarDays.appendChild(dayElement);
   }
 
-  // Render the next month's days to fill the remaining space in the last week
+  // Nästa månad
   const lastDay = new Date(currentYear, currentMonth, totalDays).getDay();
-  for (let i = 1; i <= 6 - lastDay; i++) {
+  for (let i = 1; i <= 7 - lastDay; i++) {
     const dayElement = document.createElement("div");
-    dayElement.classList.add("day", "next-day");
+    dayElement.classList.add("day", "next-date");
     dayElement.textContent = i;
     calendarDays.appendChild(dayElement);
   }

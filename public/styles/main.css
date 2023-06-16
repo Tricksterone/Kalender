@@ -13,7 +13,7 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #ffffff;
+  background-color: #010000;
 }
 .main-container {
   position: relative;
@@ -147,11 +147,11 @@ main {
   transform: translate(-50%);
   background-color: #3b71ca;
 }
-.calendar .days .day.day.selected::after{
+.calendar .days .day.day.selected::after {
   background-color: #fff;
 }
 .calendar .days .prev-date,
-.calendar .days .next-day {
+.calendar .days .next-date {
   color: #b3b3b3;
 }
 
