@@ -35,7 +35,8 @@ function renderCalendar() {
   for (let i = firstDay; i > 0; i--) {
     const dayElement = document.createElement("div");
     dayElement.classList.add("day", "prev-date");
-    dayElement.textContent = prevMonthTotalDays - (firstDay + i);
+    const prevMonthDay = prevMonthTotalDays - i + 1;
+    dayElement.textContent = prevMonthDay;
     calendarDays.appendChild(dayElement);
   }
 
