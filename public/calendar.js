@@ -5,8 +5,8 @@ document.addEventListener("DOMContentLoaded", initCalendar);
 
 function initCalendar() {
   showActiveMonth();
-  highlightCurrentDay();
   addEventListeners();
+  renderCalendar();
 }
 
 function addEventListeners() {
@@ -18,14 +18,50 @@ function addEventListeners() {
 }
 
 function renderCalendar() {
-  // 1. Hämta den först dagen i den aktiva månaden.
+  const calendarDays = document.getElementById("calendarDays");
+  calendarDays.innerHTML = "";
+
   const date = new Date(currentYear, currentMonth, 1);
-  // 2. Vilken veckodag är det?
-  const weekday = date.getDay(); // 1 = Måndag, 2 = Tisdag, 3 = Onsdag, 4 = Torsdag, 5 = Fredag, 6 = Lördag, 0 = Söndag
-  // 3. Skapa tomma divar för att fylla ut veckan.
-  // for (let i = 0)
-  // 4. Hur många dagar har månaden?
-  // 5. Skapa divar med dag i.
+  let firstDay = date.getDay() - 1;
+  if (firstDay === -1) {
+    firstDay = 6;
+  }
+  const totalDays = new Date(currentYear, currentMonth + 1, 0).getDate();
+
+  // Förra månaden
+  const prevMonth = new Date(currentYear, currentMonth, 0);
+  const prevMonthTotalDays = prevMonth.getDate();
+  for (let i = firstDay; i > 0; i--) {
+    const dayElement = document.createElement("div");
+    dayElement.classList.add("day", "prev-date");
+    const prevMonthDay = prevMonthTotalDays - i + 1;
+    dayElement.textContent = prevMonthDay;
+    calendarDays.appendChild(dayElement);
+  }
+
+  // Aktuella månaden
+  for (let i = 1; i <= totalDays; i++) {
+    const dayElement = document.createElement("div");
+    dayElement.classList.add("day");
+    dayElement.textContent = i;
+    calendarDays.appendChild(dayElement);
+  }
+
+  // Nästa månad
+  const lastDay = new Date(currentYear, currentMonth, totalDays).getDay();
+  for (let i = 1; i <= 7 - lastDay; i++) {
+    const dayElement = document.createElement("div");
+    dayElement.classList.add("day", "next-date");
+    dayElement.textContent = i;
+    calendarDays.appendChild(dayElement);
+  }
+
+  if (
+    currentMonth === new Date().getMonth() &&
+    currentYear === new Date().getFullYear()
+  ) {
+    highlightCurrentDay();
+  }
 }
 
 function highlightCurrentDay() {
@@ -35,8 +71,6 @@ function highlightCurrentDay() {
   // Hämtar dag, månad, år från nuvarande datum med getDate();
   const currentDay = currentDate.getDate();
   // Lagt till månad/år med då vi förmodligen kommer behöva det
-  const currentMonth = currentDate.getMonth();
-  const currentYear = currentDate.getFullYear();
 
   // Letar efter element(en) representerar nuvarande dag
   const calendar = document.getElementById("calendar");
@@ -99,10 +133,12 @@ function nextMonth() {
   currentYear = currentMonth === 11 ? currentYear + 1 : currentYear;
   currentMonth = (currentMonth + 1) % 12;
   showActiveMonth();
+  renderCalendar();
 }
 
 function previousMonth() {
   currentYear = currentMonth === 0 ? currentYear - 1 : currentYear;
   currentMonth = currentMonth === 0 ? 11 : currentMonth - 1;
   showActiveMonth();
+  renderCalendar();
 }
