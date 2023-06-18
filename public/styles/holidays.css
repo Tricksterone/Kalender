@@ -1,0 +1,41 @@
+.red-day {
+  font-size: 0.7em;
+  text-align: center;
+  color: red;
+  margin-top: 2px;
+}
+
+.red-day.selected {
+  font-size: 0.7em;
+  text-align: center;
+  color: rgb(236, 171, 171);
+  margin-top: 2px;
+}
+
+.day-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.date {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.red-day-text {
+  transform: translateY(-20px);
+}
+
+.red-day-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 0.7em;
+  color: red;
+}
