@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skapa en to-do</title>
+    <link rel="stylesheet" href="/styles/dist/output.css">
+</head>
+<body>
+
+<!-- Vi vill skippa att ha det här i en egen html-fil, men låter det ligga här för att undvika allt för mycket merge-conflicts.  -->
+    
+<div class="container bg-slate-500">
+    <h2 class="font-bold">Lägg till en to-do</h2><br><br>
+    <form id="form">
+        <h3>Rubrik på din to-do:</h3>
+        <input type="text" id="titleInput"></input><br>
+        <div id="error-message-title" class="text-red-600"></div><br>
+        <p>Datum:</p>
+        <input type="date" id="dateInput"><br>
+        <div id="error-message-date" class="text-red-600"></div><br>
+        <p>Beskrivning:</p>
+        <textarea id="textInput" cols="45" rows="4" placeholder="Vad ska du göra?"></textarea><br>
+        <button type="submit" class="border-solid rounded border-black">Lägg till</button>
+    </form>
+</div>
+
+<script src="todos.js"></script>
+</body>
+</html> 
