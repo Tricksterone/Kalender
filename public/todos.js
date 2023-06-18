@@ -64,8 +64,8 @@ const ListTodos = () => {
   todos.innerHTML += `<div><span>${data.title}</span>
   <p>Datum: ${data.day}</p>
   <p>Beskrivning: ${data.description}</p>
-  <i onClick ="deleteTodo(this)" class="fa-solid fa-trash" style="color: #3d4657;"></i>
-  <i class="fa-solid fa-pen-to-square" style="color: #2b384f;"></i>
+  <i onClick="deleteTodo(this)" class="fa-solid fa-trash" style="color: #3d4657;"></i>
+  <i onClick="editTodo(this)" class="fa-solid fa-pen-to-square" style="color: #2b384f;"></i>
   </div>`
 };
 
@@ -76,8 +76,14 @@ const resetForm =  () => {
 };
 
 // Uppdatera to-do
-const editTodo = () => {
+const editTodo = (td) => {
+  const selectedTodo = td.parentElement;
 
+  title.value = selectedTodo.children[0].innerHTML;
+  dateInput.value = selectedTodo.children[1].innerHTML;
+  description.value = selectedTodo.children[2].innerHTML;
+
+  selectedTodo.remove();
 };
 
 // Ta bort to-do
