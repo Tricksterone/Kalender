@@ -46,21 +46,41 @@ const formValidation = () => {
 // Samlar in input från formuläret för att spara i data
 const data = {}
 const collectData = () => {
-  data["text"] = title.value;
+  data["title"] = title.value;
   data["day"] = dateInput.value;
   data["description"] = description.value;
   console.log(data); // För testandets skull
   createdTodoMessage();
   ListTodos();
-  // Funktion att rensa formuläret/gå tillbaka till kalender-vyn?
 };
 
 const createdTodoMessage = () => {
-  createdTodo.innerHTML = "Du har lagt till en to-do"
+  createdTodo.innerHTML = "Du har lagt till en to-do";
+  resetForm();
+  // Gå tillbaka till kalendervyn-funktion?
 };
 
 const ListTodos = () => {
-  todos.innerHTML += `<div><span>${data.text}</span>
-  <p>Datum: ${data.day}</p><br>
-  <p>Beskrivning: ${data.description}</p></div`
+  todos.innerHTML += `<div><span>${data.title}</span>
+  <p>Datum: ${data.day}</p>
+  <p>Beskrivning: ${data.description}</p>
+  <i onClick ="deleteTodo(this)" class="fa-solid fa-trash" style="color: #3d4657;"></i>
+  <i class="fa-solid fa-pen-to-square" style="color: #2b384f;"></i>
+  </div>`
 };
+
+const resetForm =  () => {
+  title.value = "";
+  dateInput.value = "";
+  description.value = "";
+};
+
+// Uppdatera to-do
+const editTodo = () => {
+
+};
+
+// Ta bort to-do
+let deleteTodo = (td) => {
+  td.parentElement.remove();
+}
