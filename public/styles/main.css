@@ -13,7 +13,7 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #ffffff;
+  background-color: #010000;
 }
 .main-container {
   position: relative;
@@ -150,7 +150,7 @@ main {
   background-color: #fff;
 }
 .calendar .days .prev-date,
-.calendar .days .next-day {
+.calendar .days .next-date {
   color: #b3b3b3;
 }
 

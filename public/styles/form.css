@@ -1,0 +1,52 @@
+#todoForm {
+  position: relative;
+  top: -100px; /* Initial position above the screen */
+  opacity: 0; /* Initially hidden */
+  transition: top 0.5s ease, opacity 0.3s ease; /* Add transitions for smooth glide */
+}
+
+#todoForm.active {
+  top: 0; /* Moves the form down to its final position */
+  opacity: 1; /* Makes the form visible */
+}
+
+/* Other form styles */
+#todoForm h2 {
+  font-size: 24px;
+  margin-bottom: 16px;
+}
+
+#todoForm form {
+  display: flex;
+  flex-direction: column;
+}
+
+#todoForm input,
+#todoForm textarea {
+  margin-bottom: 8px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+#todoForm button {
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Elements under the form */
+.main-container,
+.right {
+  transition: transform 0.5s ease; /* Add transition for smooth sliding */
+}
+
+#todoForm.active ~ .main-container,
+#todoForm.active ~ .right {
+  transform: translateY(
+    100%
+  ); /* Slide down the elements and make them disappear */
+}
