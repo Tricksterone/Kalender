@@ -46,7 +46,10 @@ class Calendar {
     this.calendarDays.innerHTML = "";
 
     const date = new Date(this.currentYear, this.currentMonth, 1);
-    const firstDay = (date.getDay() + 6) % 7;
+    let firstDay = date.getDay() - 1;
+    if (firstDay === -1) {
+      firstDay = 6;
+    }
     const totalDays = new Date(
       this.currentYear,
       this.currentMonth + 1,
@@ -55,15 +58,19 @@ class Calendar {
 
     let dayElement, redDayElement, dateElement;
 
-    // Render empty cells before the first day of the month
-    for (let i = 0; i < firstDay; i++) {
+    for (let i = firstDay; i > 0; i--) {
       dayElement = document.createElement("div");
-      dayElement.classList.add("day", "empty-date");
+      dayElement.classList.add("day", "prev-date");
+      const prevMonthDay = totalDays - i + 1;
 
+      dateElement = document.createElement("div");
+      dateElement.classList.add("date");
+      dateElement.textContent = prevMonthDay;
+
+      dayElement.appendChild(dateElement);
       this.calendarDays.appendChild(dayElement);
     }
 
-    // Render the days of the current month
     for (let i = 1; i <= totalDays; i++) {
       dayElement = document.createElement("div");
       dayElement.classList.add("day");
@@ -94,14 +101,25 @@ class Calendar {
       this.calendarDays.appendChild(dayElement);
     }
 
-    // Calculate the number of remaining empty cells after the last day of the month
-    const remainingEmptyCells = (7 - ((firstDay + totalDays) % 7)) % 7;
+    const lastDay = new Date(
+      this.currentYear,
+      this.currentMonth,
+      totalDays
+    ).getDay();
 
-    // Render remaining empty cells after the last day of the month
-    for (let i = 0; i < remainingEmptyCells; i++) {
+    for (let i = 1; i <= 7 - lastDay; i++) {
       dayElement = document.createElement("div");
-      dayElement.classList.add("day", "empty-date");
+      dayElement.classList.add("day", "next-date");
 
+      const dayContainer = document.createElement("div");
+      dayContainer.classList.add("day-container");
+
+      dateElement = document.createElement("div");
+      dateElement.classList.add("date");
+      dateElement.textContent = i;
+
+      dayContainer.appendChild(dateElement);
+      dayElement.appendChild(dayContainer);
       this.calendarDays.appendChild(dayElement);
     }
 
