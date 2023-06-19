@@ -26,14 +26,20 @@
         <div class="basis-1/5">
           <p>{date & time}</p>
         </div>
+        <div class="flex md:hidden">
+          <button class="text-white">
+            <span class="sr-only">Toggle Menu</span>
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+          </button>
+        </div>
         <div class="hidden md:flex space-x-6">
           <a href="#" class="text-dark-cyan hover:underline hover:text-light-cyan hover:font-extrabold">Placeholder</a>
           <a href="#" class="text-dark-cyan hover:underline hover:text-light-cyan hover:font-extrabold">Placeholder</a>
         </div>
         <div class="hidden md:flex">
-          <p>Inloggad som <strong><a href="/"
-                class="text-dark-cyan hover:underline hover:text-light-cyan hover:font-extrabold">{username}</a></strong>
-          </p>
+          <p>Inloggad som <strong><a href="/" class="text-dark-cyan hover:underline hover:text-light-cyan hover:font-extrabold">{username}</a></strong></p>
         </div>
         <a href="#" class="p-1 px-6 text-black bg-white rounded-full baseline hidden md:block">
           Logga ut
@@ -143,16 +149,12 @@
               <div class="day">30</div>
               <div class="day next-day">1</div>
 
-              <div class="goto-today">
+              <!-- <div class="goto-today">
                 <button type="button" class="today-btn">Idag</button>
-              </div>
+              </div> -->
             </div>
           </div>
   </main>
-
-  <sidebar class="item-c"></sidebar>
-
-  <footer class="item-d"></footer>
 
 </body>
 

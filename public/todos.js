@@ -3,6 +3,7 @@ function initTodosList() {
   // eventlisteners för knappar
   // rendera todo listan
   //render dagens todos direkt
+  window.addEventListener("resize", initSideBar);
 }
 
 function initSideBar() {
@@ -12,4 +13,8 @@ function initSideBar() {
   btn.onclick = function () {
     sidebar.classList.toggle("active");
   };
+
+  if (window.innerWidth <= 1140) {
+    sidebar.classList.add("active");
+  }
 }
