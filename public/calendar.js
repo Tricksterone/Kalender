@@ -214,7 +214,3 @@ class Calendar {
     this.fetchRedDays();
   }
 }
-
-document.addEventListener("DOMContentLoaded", () => {
-  new Calendar();
-});
