@@ -29,8 +29,7 @@ const form = document.getElementById("form"),
   errorMsgDate = document.getElementById("error-message-date"),
   dateInput = document.getElementById("dateInput"),
   description = document.getElementById("textInput"),
-  createdTodo = document.getElementById("created-todo"),
-  todos = document.getElementById("show-todos");
+  createdTodo = document.getElementById("created-todo");
 
 form.addEventListener("submit", function (event) {
   event.preventDefault();

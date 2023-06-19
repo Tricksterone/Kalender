@@ -46,10 +46,7 @@ class Calendar {
     this.calendarDays.innerHTML = "";
 
     const date = new Date(this.currentYear, this.currentMonth, 1);
-    let firstDay = date.getDay() - 1;
-    if (firstDay === -1) {
-      firstDay = 6;
-    }
+    const firstDay = (date.getDay() + 6) % 7;
     const totalDays = new Date(
       this.currentYear,
       this.currentMonth + 1,
@@ -58,19 +55,15 @@ class Calendar {
 
     let dayElement, redDayElement, dateElement;
 
-    for (let i = firstDay; i > 0; i--) {
+    // Render empty cells before the first day of the month
+    for (let i = 0; i < firstDay; i++) {
       dayElement = document.createElement("div");
-      dayElement.classList.add("day", "prev-date");
-      const prevMonthDay = totalDays - i + 1;
+      dayElement.classList.add("day", "empty-date");
 
-      dateElement = document.createElement("div");
-      dateElement.classList.add("date");
-      dateElement.textContent = prevMonthDay;
-
-      dayElement.appendChild(dateElement);
       this.calendarDays.appendChild(dayElement);
     }
 
+    // Render the days of the current month
     for (let i = 1; i <= totalDays; i++) {
       dayElement = document.createElement("div");
       dayElement.classList.add("day");
@@ -101,25 +94,14 @@ class Calendar {
       this.calendarDays.appendChild(dayElement);
     }
 
-    const lastDay = new Date(
-      this.currentYear,
-      this.currentMonth,
-      totalDays
-    ).getDay();
+    // Calculate the number of remaining empty cells after the last day of the month
+    const remainingEmptyCells = (7 - ((firstDay + totalDays) % 7)) % 7;
 
-    for (let i = 1; i <= 7 - lastDay; i++) {
+    // Render remaining empty cells after the last day of the month
+    for (let i = 0; i < remainingEmptyCells; i++) {
       dayElement = document.createElement("div");
-      dayElement.classList.add("day", "next-date");
+      dayElement.classList.add("day", "empty-date");
 
-      const dayContainer = document.createElement("div");
-      dayContainer.classList.add("day-container");
-
-      dateElement = document.createElement("div");
-      dateElement.classList.add("date");
-      dateElement.textContent = i;
-
-      dayContainer.appendChild(dateElement);
-      dayElement.appendChild(dayContainer);
       this.calendarDays.appendChild(dayElement);
     }
 
@@ -148,15 +130,25 @@ class Calendar {
   }
 
   highlightCurrentDay() {
+    // Date konstruktor
     const currentDate = new Date();
-    const currentDay = currentDate.getDate();
-    const dayElements = this.calendarDays.getElementsByClassName("day");
 
+    // Hämtar dag, månad, år från nuvarande datum med getDate();
+    const currentDay = currentDate.getDate();
+    // Lagt till månad/år med då vi förmodligen kommer behöva det
+
+    // Letar efter element(en) representerar nuvarande dag
+    const calendar = document.getElementById("calendar");
+    const dayElements = calendar.getElementsByClassName("day");
+
+    // Loopar igenom dag elementen och kollar ifall datumet matchar nuvarande datum
+    // ja det är en for loop Elin ;)
     for (let i = 0; i < dayElements.length; i++) {
       const dayElement = dayElements[i];
-      const day = parseInt(dayElement.querySelector(".date").textContent);
+      const day = parseInt(dayElement.innerText);
 
       if (day === currentDay) {
+        // CSS styling för highlighten
         dayElement.style.backgroundColor = "#03204e";
         dayElement.style.color = "white";
       }
