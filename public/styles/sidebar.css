@@ -145,7 +145,7 @@
 }
 
 .sidebar.active ul li .tooltip {
-  display: none;
+  display: hidden;
 }
 
 .main-content {
