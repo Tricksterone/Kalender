@@ -6,21 +6,18 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Document</title>
-  <script src="main.js"></script>
-  <script src="todos.js"></script>
-  <script src="calendar.js"></script>
   <link rel="stylesheet" href="/styles/footer.css">
   <link rel="stylesheet" href="/styles/main.css">
   <link rel="stylesheet" href="/styles/sidebar.css">
   <link rel="stylesheet" href="/styles/holidays.css">
   <link rel="stylesheet" href="/styles/dist/output.css">
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <script src="main.js" defer></script>
+  <script src="todos.js" defer></script>
+  <script src="calendar.js" defer></script>
 </head>
 
 <body>
-
-  <!-- TO-DO: lägg till funktioner, ändra om ordningen lite kanske, lägg till hamburgermeny på små skärmar -->
-  <!-- Hade varit snyggt med en liten liten profilbild kanske vid namnet. Fixa logga ut-knappen och kanske ha någon mer knapp?  -->
   <header class="bg-black">
     <nav class="relative container mx-auto p-2">
       <div class="flex items-center justify-between text-stone-300">
@@ -58,33 +55,47 @@
             <div class="user">
               <img src="Png/DALL·E 2023-06-09 13.32.03.png" alt="VoodoMask" class="user-img" />
               <div>
-                <p class="bold">You're name</p>
+                <p class="bold">Your name</p>
                 <p>Status</p>
               </div>
             </div>
             <ul>
               <li>
-                <a href="to-do.html">
+                <a href="#" id="createTodoLink">
                   <i class="bx bx-pencil"></i>
                   <span class="nav-item">Create Todo</span>
+                  <span class="tooltip">Create Todo</span>
                 </a>
-                <span class="tooltip">Create Todo</span>
               </li>
               <li>
                 <a href="#">
                   <i class="bx bx-clipboard"></i>
                   <span class="nav-item">Today's Todo's</span>
+                  <span class="tooltip">Today's Todo's</span>
                 </a>
-                <span class="tooltip">Today's Todo's</span>
               </li>
               <li>
                 <a href="#">
                   <i class="bx bx-list-check"></i>
-                  <span class="nav-item">weekly Todo's</span>
+                  <span class="nav-item">Weekly Todo's</span>
+                  <span class="tooltip">Week Todo's</span>
                 </a>
-                <span class="tooltip">week Todo's</span>
               </li>
             </ul>
+          </div>
+          <div class="container bg-gray-900 hidden" id="todoForm">
+            <h2 class="font-bold">Lägg till en to-do</h2>
+            <form id="form">
+              <h3>Rubrik på din to-do:</h3>
+              <input type="text" id="titleInput" class="text-gray-900" placeholder="Title"></input>
+              <div id="error-message-title" class="text-red-600"></div>
+              <p>Datum:</p>
+              <input type="date" id="dateInput" placeholder="Date" class="text-gray-800">
+              <div id="error-message-date" class="text-red-600"></div>
+              <p>Beskrivning:</p>
+              <textarea id="textInput" cols="45" rows="4" placeholder="Vad ska du göra?"></textarea><br>
+              <button type="submit" class="border-solid rounded border-black">Lägg till</button>
+            </form>
           </div>
         </div>
       </div>
