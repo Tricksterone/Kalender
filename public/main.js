@@ -5,5 +5,5 @@ function main() {
   // Init today view
   initTodosList();
   // Init calendar
-  initCalendar();
+  // initCalendar();
 }

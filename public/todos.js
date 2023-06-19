@@ -50,11 +50,12 @@ function initSideBar() {
     sidebar.classList.add("active");
   }
 
-  let createTodoLink = document.querySelector('a[href="to-do.html"]');
-  createTodoLink.addEventListener("click", (event) => {
-    event.preventDefault();
-    todoForm.classList.toggle("hidden");
-  });
+  // eftersom det inte länkas till någon ny html-sida längre 2023-06-19 Elin
+  // let createTodoLink = document.querySelector('a[href="to-do.html"]');
+  // createTodoLink.addEventListener("click", (event) => {
+  //   event.preventDefault();
+  //   todoForm.classList.toggle("hidden");
+  // });
 }
 
 const submitButton = document.querySelector("#form button[type='submit']");
@@ -98,17 +99,25 @@ function createdTodoMessage() {
 }
 
 function ListTodos() {
-  todos.innerHTML = "";
-  TodoCollection.map(function (x, y) {
-    return (todos.innerHTML += `
-      <div id=${y}>
-        <span>${x.title}</span><br>
-        <p>${x.day}</p><br>
-        <p>Beskrivning:</p>
-        <span>${x.description}</span><br>
-        <i onClick="deleteTodo(this)" class="fa-solid fa-trash" style="color: #3d4657;"></i>
-        <i onClick="editTodo(this)" class="fa-solid fa-pen-to-square" style="color: #2b384f;"></i>
-      </div>`);
+  const todosElement = document.getElementById("show-todos");
+  if (!todosElement) {
+    // console.error("The 'show-todos' element is missing.");
+    return;
+  }
+
+  todosElement.innerHTML = "";
+  TodoCollection.forEach(function (todo, index) {
+    const todoElement = document.createElement("div");
+    todoElement.id = index;
+    todoElement.innerHTML = `
+      <span>${todo.title}</span><br>
+      <p>${todo.day}</p><br>
+      <p>Beskrivning:</p>
+      <span>${todo.description}</span><br>
+      <i onClick="deleteTodo(this)" class="fa-solid fa-trash" style="color: #3d4657;"></i>
+      <i onClick="editTodo(this)" class="fa-solid fa-pen-to-square" style="color: #2b384f;"></i>
+    `;
+    todosElement.appendChild(todoElement);
   });
 }
 

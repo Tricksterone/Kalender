@@ -31,8 +31,8 @@ class Calendar {
   }
 
   addEventListeners() {
-    const nextButton = document.getElementById("next");
-    const previousButton = document.getElementById("prev");
+    const nextButton = document.querySelector("[data-cy='next-month']");
+    const previousButton = document.querySelector("[data-cy='prev-month']");
 
     nextButton.addEventListener("click", () => this.nextMonth());
     previousButton.addEventListener("click", () => this.previousMonth());
@@ -74,6 +74,7 @@ class Calendar {
     for (let i = 1; i <= totalDays; i++) {
       dayElement = document.createElement("div");
       dayElement.classList.add("day");
+      dayElement.setAttribute("data-cy", "calendar-cell");
 
       const dayContainer = document.createElement("div");
       dayContainer.classList.add("day-container");
@@ -86,12 +87,14 @@ class Calendar {
       );
       if (redDayElement) {
         redDayElement.classList.add("red-day");
+        redDayElement.setAttribute("data-cy", "calendar-cell-holiday");
         dayContainer.appendChild(redDayElement);
       }
 
       dateElement = document.createElement("div");
       dateElement.classList.add("date");
       dateElement.textContent = i;
+      dateElement.setAttribute("data-cy", "calendar-cell-date");
 
       dayContainer.appendChild(dateElement);
       dayElement.appendChild(dayContainer);

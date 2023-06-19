@@ -37,7 +37,9 @@
           <a href="#" class="text-dark-cyan hover:underline hover:text-light-cyan hover:font-extrabold">Placeholder</a>
         </div>
         <div class="hidden md:flex">
-          <p>Inloggad som <strong><a href="/" class="text-dark-cyan hover:underline hover:text-light-cyan hover:font-extrabold">{username}</a></strong></p>
+          <p>Inloggad som <strong><a href="/"
+                class="text-dark-cyan hover:underline hover:text-light-cyan hover:font-extrabold">{username}</a></strong>
+          </p>
         </div>
         <a href="#" class="p-1 px-6 text-black bg-white rounded-full baseline hidden md:block">
           Logga ut
@@ -108,9 +110,9 @@
       <div class="right">
         <div class="calendar">
           <div class="month flex items-center">
-            <i class="bx bx-chevron-left prev" id="prev"></i>
+            <i class="bx bx-chevron-left prev" id="prev" data-cy="prev-month"></i>
             <div class="active-month" id="calendarMonths"></div>
-            <i class="bx bx-chevron-right next" id="next"></i>
+            <i class="bx bx-chevron-right next" id="next" data-cy="next-month"></i>
           </div>
           <div class="weekdays">
             <div>Mån</div>
@@ -122,15 +124,14 @@
             <div>Sön</div>
           </div>
           <div id="calendar">
-            <div class="days selected" id="selected" onclick="selectedDay()">
-
-            <div id="calendarDays" class="days selected">
-              <!-- Calendar days will be rendered here -->
+            <div class="days selected" id="selected" onclick="selectedDay()" data-cy="calendar-body">
+              <div id="calendarDays" class="days selected" data-cy="calendar-cell">
+                <!-- Calendar days will be rendered here -->
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
   </main>
 
 </body>
