@@ -207,7 +207,7 @@ main {
 
 @media (max-width: 767px) {
   .hidden {
-    display: none;
+    display: hidden;
   }
   .flex.md\\:hidden {
     display: flex;
