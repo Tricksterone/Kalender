@@ -141,8 +141,8 @@ const editTodo = (td) => {
   title.value = selectedTodo.children[0].innerHTML;
   dateInput.value = selectedTodo.children[2].innerHTML;
   description.value = selectedTodo.children[5].innerHTML;
+  deleteTodo(td);
 };
-// deleteTodo(td);
 
 // Ta bort to-do
 let deleteTodo = (td) => {
