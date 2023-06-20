@@ -137,11 +137,25 @@ const editTodo = (td) => {
   const titleInput = document.getElementById("titleInput");
   const dateInput = document.getElementById("dateInput");
   const textInput = document.getElementById("textInput");
+  const todoForm = document.getElementById("todoForm");
 
-  title.value = selectedTodo.children[0].innerHTML;
-  dateInput.value = selectedTodo.children[2].innerHTML;
-  description.value = selectedTodo.children[5].innerHTML;
-  deleteTodo(td);
+  const titleElement = selectedTodo.children[0];
+  const dateElement = selectedTodo.children[2];
+  const descriptionElement = selectedTodo.children[5];
+
+  if (titleElement && dateElement && descriptionElement) {
+    const todoIndex = parseInt(selectedTodo.getAttribute("id")); // Retrieve the index of the selected todo
+    if (!isNaN(todoIndex)) {
+      titleInput.value = titleElement.innerHTML;
+      dateInput.value = dateElement.innerHTML;
+      textInput.value = descriptionElement.innerHTML;
+
+      deleteTodo(td);
+
+      // Show the todo form
+      todoForm.style.display = "block";
+    }
+  }
 };
 
 // Ta bort to-do
