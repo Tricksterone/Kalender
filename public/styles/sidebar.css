@@ -127,6 +127,7 @@
 }
 
 .sidebar ul li .tooltip {
+  display: none;
   position: absolute;
   left: 125px;
   top: 50%;
