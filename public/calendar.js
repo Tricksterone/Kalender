@@ -90,6 +90,10 @@ class Calendar {
       dateElement.textContent = i;
       dateElement.setAttribute("data-cy", "calendar-cell-date");
 
+      const dateContainer = document.createElement("div");
+      dateContainer.classList.add("date-container");
+      dateContainer.appendChild(dateElement);
+
       dayContainer.appendChild(dateElement);
       dayElement.appendChild(dayContainer);
       this.calendarDays.appendChild(dayElement);
