@@ -39,7 +39,8 @@
         </div>
         <div class="hidden md:flex">
           <p>Inloggad som <strong><a href="/"
-                class="text-dark-cyan hover:underline hover:text-light-cyan hover:font-extrabold">Jelin Karlsstein</a></strong>
+                class="text-dark-cyan hover:underline hover:text-light-cyan hover:font-extrabold">Jelin
+                Karlsstein</a></strong>
           </p>
         </div>
         <a href="#" class="p-1 px-6 text-black bg-white rounded-full baseline hidden md:block">
@@ -83,20 +84,23 @@
               <h2 class="font-bold">Lägg till en to-do</h2>
               <form id="form">
                 <h3>Rubrik på din to-do:</h3>
-                <input type="text" id="titleInput" class="text-black" placeholder="Title" data-cy="todo-title-input"></input>
+                <input type="text" id="titleInput" class="text-black" placeholder="Title"
+                  data-cy="todo-title-input"></input>
                 <div id="error-message-title" class="text-red-600"></div>
                 <p>Datum:</p>
                 <input type="date" id="dateInput" placeholder="Date" class="text-black" data-cy="todo-date-input">
                 <div id="error-message-date" class="text-red-600"></div>
                 <p>Beskrivning:</p>
-                <textarea id="textInput" cols="45" rows="4" placeholder="Vad ska du göra för kul?" class="text-black"></textarea><br>
-                <button type="submit" class="border-solid rounded border-black" data-cy="save-todo-button">Lägg till</button>
+                <textarea id="textInput" cols="45" rows="4" placeholder="Vad ska du göra för kul?"
+                  class="text-black"></textarea><br>
+                <button type="submit" class="border-solid rounded border-black" data-cy="save-todo-button">Lägg
+                  till</button>
               </form>
             </div>
             <li data-cy="todo-list" id="todos" class="list-image-none"><!-- Injected via JS --></li>
           </div>
-      </div>
-    </aside>
+        </div>
+      </aside>
       <div class="right">
         <div class="calendar">
           <div class="month flex items-center">
@@ -114,7 +118,7 @@
             <div>Sön</div>
           </div>
           <div id="calendar">
-            <div class="days selected" id="selected" onclick="selectedDay()" data-cy="calendar-body">
+            <div class="days selected" id="selected" data-cy="calendar-body">
 
               <div id="calendarDays" class="days selected" data-cy="calendar-cell">
                 <!-- Calendar days will be rendered here -->

@@ -55,15 +55,16 @@ class Calendar {
 
     let dayElement, redDayElement, dateElement;
 
-    // Render empty cells before the first day of the month
+    // Skapar tomma celler innan aktuell månad
     for (let i = 0; i < firstDay; i++) {
       dayElement = document.createElement("div");
       dayElement.classList.add("day", "empty-date");
+      dayElement.setAttribute("data-cy", "calendar-cell");
 
       this.calendarDays.appendChild(dayElement);
     }
 
-    // Render the days of the current month
+    // Aktuella månadens dagar
     for (let i = 1; i <= totalDays; i++) {
       dayElement = document.createElement("div");
       dayElement.classList.add("day");
@@ -94,13 +95,14 @@ class Calendar {
       this.calendarDays.appendChild(dayElement);
     }
 
-    // Calculate the number of remaining empty cells after the last day of the month
+    // Räknar ut antalet dagar efter aktuell månad
     const remainingEmptyCells = (7 - ((firstDay + totalDays) % 7)) % 7;
 
-    // Render remaining empty cells after the last day of the month
+    // Renderar månaden efter
     for (let i = 0; i < remainingEmptyCells; i++) {
       dayElement = document.createElement("div");
       dayElement.classList.add("day", "empty-date");
+      dayElement.setAttribute("data-cy", "calendar-cell");
 
       this.calendarDays.appendChild(dayElement);
     }
@@ -156,13 +158,15 @@ class Calendar {
   }
 
   selectedDay(event) {
-    const selectedElements = document.getElementsByClassName("selected");
-    if (selectedElements.length > 0) {
-      selectedElements[0].classList.remove("selected");
-    }
-
     const clickedElement = event.target.closest(".day");
+
     if (clickedElement) {
+      const selectedElement = this.calendarDays.querySelector(".selected");
+
+      if (selectedElement) {
+        selectedElement.classList.remove("selected");
+      }
+
       clickedElement.classList.add("selected");
     }
   }
