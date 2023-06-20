@@ -118,8 +118,8 @@ function ListTodos() {
           <p>${x.day ? x.day : ""}</p><br>
           <p>Beskrivning:</p>
           <span>${x.description ? x.description : ""}</span><br>
-          <i onClick="deleteTodo(this)" class="fa-solid fa-trash" style="color: #3d4657;"></i>
-          <i onClick="editTodo(this)" class="fa-solid fa-pen-to-square" style="color: #2b384f;"></i>
+          <i data-cy="edit-todo-button" onClick="deleteTodo(this)" class="fa-solid fa-trash" style="color: #3d4657;"></i>
+          <i data-cy="delete-todo-button" onClick="editTodo(this.parentElement)" class="fa-solid fa-pen-to-square" style="color: #2b384f;"></i>
         </div>`;
     }
   });
@@ -134,13 +134,15 @@ const resetForm = () => {
 // Uppdatera to-do
 const editTodo = (td) => {
   const selectedTodo = td.parentElement;
+  const titleInput = document.getElementById("titleInput");
+  const dateInput = document.getElementById("dateInput");
+  const textInput = document.getElementById("textInput");
 
   title.value = selectedTodo.children[0].innerHTML;
   dateInput.value = selectedTodo.children[2].innerHTML;
   description.value = selectedTodo.children[5].innerHTML;
-
-  deleteTodo(td);
 };
+// deleteTodo(td);
 
 // Ta bort to-do
 let deleteTodo = (td) => {
