@@ -97,7 +97,7 @@ function createdTodoMessage() {
 
 //function to get events from local storage
 function getEvents() {
-  //check if events are already saved in local storage then return events else nothing
+  //check if events are already saved in local storage then return
   if (localStorage.getItem("todos") === null) {
     return;
   }
@@ -110,6 +110,9 @@ function ListTodos() {
 
   // Retrieve events from local storage
   getEvents();
+
+  console.log("render todos", calendar?.selectedDate);
+  // todo: filtrera todoCollection innan forEach utifrån selectedDate
 
   TodoCollection.forEach(function (x, y) {
     // Check if x is not null

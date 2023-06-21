@@ -4,6 +4,7 @@ class Calendar {
     this.currentYear = new Date().getFullYear();
     this.monthContainer = document.getElementById("calendarMonths");
     this.calendarDays = document.getElementById("calendarDays");
+    this.selectedDate = undefined;
 
     this.initCalendar();
   }
@@ -41,7 +42,7 @@ class Calendar {
     previousButton.addEventListener("click", () => this.previousMonth());
 
     this.calendarDays.addEventListener("click", (event) =>
-      this.selectedDay(event)
+      this.selectDay(event)
     );
   }
 
@@ -185,9 +186,23 @@ class Calendar {
     }
   }
 
-  selectedDay(event) {
-    const clickedElement = event.target.closest(".day");
+  /** @param {Event} event */
+  selectDay(event) {
+    if (this.selectedDate) {
+      this.selectedDate = undefined;
+    } else {
+      this.selectedDate = new Date(
+        this.currentYear,
+        this.currentMonth,
+        event.target.innerText
+      );
+    }
+    ListTodos();
+    this.highlightSelectedDay();
+  }
 
+  highlightSelectedDay() {
+    const clickedElement = event.target.closest(".day");
     if (clickedElement) {
       const selectedElement = this.calendarDays.querySelector(".selected");
 
