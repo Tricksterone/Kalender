@@ -88,6 +88,9 @@
 .sidebar.active p {
   opacity: 1;
 }
+.sidebar.active li {
+  list-style-type: none;
+}
 
 .sidebar ul li {
   position: relative;
@@ -168,23 +171,32 @@
   .sidebar.active {
     width: 300px;
   }
+  #textInput {
+    width: 100%;
+  }
 }
 @media (max-width: 1140px) {
   .sidebar.active {
     width: 100%;
     border-radius: 5px;
-    height: 50%;
+    height: 100%;
   }
   .sidebar #btn {
     font-size: 2rem;
   }
+  #textInput {
+    width: 370px;
+  }
 }
 @media (max-width: 767px) {
   .sidebar {
-    height: 55%;
+    height: 100%;
   }
   .sidebar .top .logo {
     height: 15px;
+  }
+  .sidebar.active {
+    height: 100%;
   }
   .user-img {
     height: 25px;

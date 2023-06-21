@@ -28,6 +28,7 @@ main {
   background-color: #010000;
 }
 .left {
+  flex: 1;
   padding: 20px;
 }
 .todo-container {
