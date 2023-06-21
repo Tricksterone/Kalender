@@ -23,6 +23,8 @@ function setupListeners() {
   });
 }
 
+let eventsArr = [];
+
 const form = document.getElementById("form"),
   title = document.getElementById("titleInput"),
   errorMsgTitle = document.getElementById("error-message-title"),
@@ -82,7 +84,7 @@ function collectData() {
     day: dateInput.value,
     description: description.value,
   });
-  localStorage.setItem("data", JSON.stringify(TodoCollection));
+  localStorage.setItem("todos", JSON.stringify(TodoCollection));
   createdTodoMessage();
 }
 
@@ -157,6 +159,7 @@ const editTodo = (td) => {
       todoForm.style.display = "block";
     }
   }
+  new Calendar();
 };
 
 // Ta bort to-do
@@ -168,7 +171,7 @@ let deleteTodo = (td) => {
 
   TodoCollection.splice(id, 1);
   localStorage.removeItem(id);
-  localStorage.setItem("data", JSON.stringify(TodoCollection));
+  localStorage.setItem("todos", JSON.stringify(TodoCollection));
 
   //td.parentElement.remove();
   //TodoCollection.splice(td.parentElement, 1);
@@ -179,7 +182,7 @@ let deleteTodo = (td) => {
 };
 
 (() => {
-  TodoCollection = JSON.parse(localStorage.getItem("data")) || [];
+  TodoCollection = JSON.parse(localStorage.getItem("todos")) || [];
   ListTodos();
 })();
 

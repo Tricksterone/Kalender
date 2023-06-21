@@ -200,7 +200,7 @@ class Calendar {
   }
 
   getTodos() {
-    const storedData = localStorage.getItem("data");
+    const storedData = localStorage.getItem("todos");
     const todos = JSON.parse(storedData);
 
     return todos;
