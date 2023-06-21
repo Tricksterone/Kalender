@@ -131,11 +131,16 @@ main {
   color: #010000;
   border: 1px solid #010000;
 }
+.day {
+  flex-direction: column;
+}
 
 .calendar .days .event {
   position: relative;
+  content: attr(data-todo-count);
 }
 .calendar .days .event::after {
+  content: attr(data-todo-count);
   content: "";
   position: absolute;
   bottom: 10%;
@@ -162,31 +167,6 @@ main {
 .calendar .days .day.selected {
   background-color: #3b71ca;
   color: #fff;
-}
-
-.goto-today {
-  position: relative;
-  display: flex;
-  justify-content: flex-end;
-  width: 95%;
-}
-
-.today-btn {
-  display: inline-block;
-  padding: 10px 20px;
-  font-size: 1.7rem;
-  font-weight: 500;
-  color: #ffffff;
-  background-color: #3b71ca;
-  border-radius: 0.4rem;
-  box-shadow: 0 4px 9px -4px rgba(59, 113, 202, 0.5);
-  transition: background-color 150ms ease-in-out, box-shadow 150ms ease-in-out;
-  outline: none;
-  border: none;
-}
-
-.today-btn:hover {
-  cursor: pointer;
 }
 
 .hamburger-bar {

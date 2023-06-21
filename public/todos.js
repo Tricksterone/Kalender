@@ -14,11 +14,11 @@ function setupListeners() {
 
   createTodoBtn.addEventListener("click", function (event) {
     event.preventDefault();
-    todoForm.classList.toggle("hidden");
+    // todoForm.classList.toggle("hidden");
 
     // Toggle visibility of other elements
     for (let element of otherElements) {
-      element.classList.toggle("hidden");
+      // element.classList.toggle("hidden");
     }
   });
 }
@@ -51,7 +51,7 @@ function initSideBar() {
   let createTodoLink = document.querySelector("#createTodoLink");
   createTodoLink.addEventListener("click", (event) => {
     event.preventDefault();
-    todoForm.classList.toggle("hidden");
+    // todoForm.classList.toggle("hidden");
   });
 }
 
@@ -59,6 +59,7 @@ const submitButton = document.querySelector("#form button[type='submit']");
 submitButton.addEventListener("click", function (event) {
   event.preventDefault();
   formValidation();
+  new Calendar();
 });
 
 const formValidation = () => {
@@ -89,7 +90,7 @@ function createdTodoMessage() {
   // createdTodo.innerHTML = "Du har lagt till en to-do";
   ListTodos();
   resetForm();
-  todoForm.classList.add("hidden"); // Hide the form
+  // todoForm.classList.add("hidden"); // Hide the form
 }
 
 //function to get events from local storage
@@ -113,14 +114,14 @@ function ListTodos() {
     if (x) {
       // Access the properties only if x is not null
       todos.innerHTML += `
-        <div id=${y}>
+        <li id=${y}>
           <span>${x.title ? x.title : ""}</span><br>
           <p>${x.day ? x.day : ""}</p><br>
           <p>Beskrivning:</p>
           <span>${x.description ? x.description : ""}</span><br>
           <i data-cy="delete-todo-button" onClick="deleteTodo(this)" class="fa-solid fa-trash" style="color: #3d4657;"></i>
           <i data-cy="edit-todo-button" onClick="editTodo(this)" class="fa-solid fa-pen-to-square" style="color: #2b384f;"></i>
-        </div>`;
+        </li>`;
     }
   });
 }
@@ -160,9 +161,21 @@ const editTodo = (td) => {
 
 // Ta bort to-do
 let deleteTodo = (td) => {
-  td.parentElement.remove();
-  TodoCollection.splice(td.parentElement, 1);
+  console.log(
+    `td.parentElement.getAttribute: ${td.parentElement.getAttribute("id")}`
+  );
+  const id = td.parentElement.getAttribute("id");
+
+  TodoCollection.splice(id, 1);
+  localStorage.removeItem(id);
   localStorage.setItem("data", JSON.stringify(TodoCollection));
+
+  //td.parentElement.remove();
+  //TodoCollection.splice(td.parentElement, 1);
+  //localStorage.setItem("data", JSON.stringify(TodoCollection));
+
+  ListTodos();
+  new Calendar();
 };
 
 (() => {
@@ -179,10 +192,10 @@ const otherElements = document.querySelectorAll(
 
 createTodoLink.addEventListener("click", function (event) {
   event.preventDefault();
-  todoForm.classList.toggle("hidden");
+  // todoForm.classList.toggle("hidden");
 
   // Toggle visibility of other elements
   for (let element of otherElements) {
-    element.classList.toggle("hidden");
+    // element.classList.toggle("hidden");
   }
 });

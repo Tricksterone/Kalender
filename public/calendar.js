@@ -11,16 +11,19 @@ class Calendar {
   async fetchRedDays() {
     try {
       const response = await fetch(
-        `https://api.dryg.net/dagar/v2.1/${this.currentYear}`
+        `https://sholiday.faboul.se/dagar/v2.1/${this.currentYear}/${
+          this.currentMonth + 1
+        }`
       );
       if (!response.ok) {
         throw new Error("Failed to fetch red days.");
       }
       const data = await response.json();
+      console.log(data);
       const redDays = data.dagar.filter((day) => day.helgdag !== undefined);
       this.renderCalendar(redDays);
     } catch (error) {
-      console.error(error);
+      // console.error(error);
     }
   }
 
@@ -52,6 +55,7 @@ class Calendar {
       this.currentMonth + 1,
       0
     ).getDate();
+    console.log("Total days:", totalDays);
 
     let dayElement, redDayElement, dateElement;
 
@@ -71,7 +75,28 @@ class Calendar {
       dayElement.setAttribute("data-cy", "calendar-cell");
 
       const dayContainer = document.createElement("div");
-      dayContainer.classList.add("day-container");
+      dayContainer.classList.add("day-container", "date");
+      dayContainer.setAttribute("data-cy", "calendar-cell-date");
+
+      // const dateElement = document.createElement("div");
+      // dateElement.classList.add("date");
+      dayContainer.textContent = i;
+
+      dayElement.appendChild(dayContainer);
+      this.calendarDays.appendChild(dayElement);
+
+      let todoCount = this.markTodoInDate(
+        this.currentYear,
+        this.currentMonth,
+        i
+      );
+
+      const eventElement = this.createEventElement(todoCount);
+      if (eventElement) {
+        eventElement.setAttribute("data-todo-count", todoCount);
+        eventElement.setAttribute("data-cy", "calendar-cell-todos");
+        dayElement.appendChild(eventElement);
+      }
 
       redDayElement = this.createRedDayElement(
         i,
@@ -84,20 +109,11 @@ class Calendar {
         redDayElement.setAttribute("data-cy", "calendar-cell-holiday");
         dayContainer.appendChild(redDayElement);
       }
-
-      dateElement = document.createElement("div");
-      dateElement.classList.add("date");
-      dateElement.textContent = i;
-      dateElement.setAttribute("data-cy", "calendar-cell-date");
-
-      const dateContainer = document.createElement("div");
-      dateContainer.classList.add("date-container");
-      dateContainer.appendChild(dateElement);
-
-      dayContainer.appendChild(dateElement);
-      dayElement.appendChild(dayContainer);
-      this.calendarDays.appendChild(dayElement);
     }
+    console.log(
+      "Number of calendar cells:",
+      this.calendarDays.querySelectorAll('[data-cy="calendar-cell"]').length
+    );
 
     // Räknar ut antalet dagar efter aktuell månad
     const remainingEmptyCells = (7 - ((firstDay + totalDays) % 7)) % 7;
@@ -107,7 +123,6 @@ class Calendar {
       dayElement = document.createElement("div");
       dayElement.classList.add("day", "empty-date");
       dayElement.setAttribute("data-cy", "calendar-cell");
-
       this.calendarDays.appendChild(dayElement);
     }
 
@@ -131,6 +146,15 @@ class Calendar {
       redDayElement.textContent = matchedDay["helgdag"];
       redDayElement.classList.add("red-day-text");
       return redDayElement;
+    }
+    return null;
+  }
+
+  createEventElement(todoCount) {
+    if (todoCount > 0) {
+      const eventElement = document.createElement("div");
+      eventElement.textContent = todoCount;
+      return eventElement;
     }
     return null;
   }
@@ -172,6 +196,36 @@ class Calendar {
       }
 
       clickedElement.classList.add("selected");
+    }
+  }
+
+  getTodos() {
+    const storedData = localStorage.getItem("data");
+    const todos = JSON.parse(storedData);
+
+    return todos;
+  }
+
+  markTodoInDate(currentYear, currentMonth, currentDay) {
+    const todos = this.getTodos();
+    if (currentMonth < 10) {
+      currentMonth = `0${currentMonth + 1}`;
+    }
+    if (currentDay < 10) {
+      currentDay = `0${currentDay}`;
+    }
+    const date = `${currentYear}-${currentMonth}-${currentDay}`;
+    let isTodoFound = 0; // Flag to track if a matching todo is found
+
+    if (todos != null) {
+      todos.forEach((todo) => {
+        if (todo.day.toString() === date.toString()) {
+          isTodoFound++; // Set the flag to true if a match is found
+        }
+      });
+      return isTodoFound; // Return the flag after the loop ends
+    } else {
+      return isTodoFound;
     }
   }
 
