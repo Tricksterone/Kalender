@@ -1,3 +1,5 @@
+
+
 class Calendar {
   constructor() {
     this.currentMonth = new Date().getMonth();
@@ -6,6 +8,8 @@ class Calendar {
     this.calendarDays = document.getElementById("calendarDays");
     this.selectedDate = undefined;
 
+    
+    this.addEventListeners();
     this.initCalendar();
   }
 
@@ -30,7 +34,6 @@ class Calendar {
 
   initCalendar() {
     this.showActiveMonth();
-    this.addEventListeners();
     this.fetchRedDays();
   }
 
@@ -186,20 +189,24 @@ class Calendar {
     }
   }
 
-  /** @param {Event} event */
-  selectDay(event) {
-    if (this.selectedDate) {
-      this.selectedDate = undefined;
-    } else {
-      this.selectedDate = new Date(
-        this.currentYear,
-        this.currentMonth,
-        event.target.innerText
-      );
+ /** @param {Event} event */
+selectDay(event) {
+  const clickedElement = event.target.closest(".day");
+  if (clickedElement) {
+    const selectedElement = this.calendarDays.querySelector(".selected");
+
+    if (selectedElement) {
+      selectedElement.classList.remove("selected");
     }
-    ListTodos();
-    this.highlightSelectedDay();
+
+    clickedElement.classList.add("selected");
+
+    const day = parseInt(clickedElement.innerText);
+    this.selectedDate = new Date(this.currentYear, this.currentMonth, day);
+
+    ListTodosDay(this.selectedDate);
   }
+}
 
   highlightSelectedDay() {
     const clickedElement = event.target.closest(".day");
@@ -208,11 +215,12 @@ class Calendar {
 
       if (selectedElement) {
         selectedElement.classList.remove("selected");
-      }
+      } 
 
       clickedElement.classList.add("selected");
     }
   }
+
 
   getTodos() {
     const storedData = localStorage.getItem("todos");
@@ -283,3 +291,4 @@ class Calendar {
     this.fetchRedDays();
   }
 }
+

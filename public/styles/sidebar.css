@@ -8,6 +8,10 @@
   border-radius: 100%;
   border: 1px solid #eee;
 }
+ul {
+  display: flex;
+  flex-direction: column;
+}
 
 .sidebar {
   position: relative;

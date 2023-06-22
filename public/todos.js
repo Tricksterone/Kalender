@@ -1,3 +1,4 @@
+
 function initTodosList() {
   initSideBar();
   setupListeners();
@@ -123,13 +124,50 @@ function ListTodos() {
           <span>${x.title ? x.title : ""}</span><br>
           <p>${x.day ? x.day : ""}</p><br>
           <p>Beskrivning:</p>
-          <span>${x.description ? x.description : ""}</span><br>
+          <span>${x.description ? x.description : ""}</span><br><br>
           <i data-cy="delete-todo-button" onClick="deleteTodo(this)" class="fa-solid fa-trash" style="color: #3d4657;"></i>
           <i data-cy="edit-todo-button" onClick="editTodo(this)" class="fa-solid fa-pen-to-square" style="color: #2b384f;"></i>
         </li>`;
     }
   });
 }
+function ListTodosDay(selectedDate) {
+  const todos = document.querySelector("#todos");
+  todos.innerHTML = "";
+
+  // Retrieve events from local storage
+  getEvents();
+
+  console.log("render todos", selectedDate);
+
+  TodoCollection.forEach(function (t, i) {
+    if (t && (!selectedDate || isSameDay(new Date(t.day), selectedDate))) {
+      todos.innerHTML += `
+      <li id=${i}>
+          <span>${t.title ? t.title : ""}</span><br>
+          <p>${t.day ? t.day : ""}</p><br>
+          <p>Beskrivning:</p>
+          <span>${t.description ? t.description : ""}</span><br>
+          <i data-cy="delete-todo-button" onClick="deleteTodo(this)" class="fa-solid fa-trash" style="color: #3d4657;"></i>
+          <i data-cy="edit-todo-button" onClick="editTodo(this)" class="fa-solid fa-pen-to-square" style="color: #2b384f;"></i>
+        </li>
+        `;
+    }
+  });
+}
+
+function isSameDay(date1, date2) {
+  if (!date1 || !date2) {
+    return false; 
+  }
+
+  return (
+    date1.getFullYear() === date2.getFullYear() &&
+    date1.getMonth() === date2.getMonth() &&
+    date1.getDate() === date2.getDate()
+  );
+}
+
 
 const resetForm = () => {
   title.value = "";
@@ -172,16 +210,19 @@ let deleteTodo = (td) => {
   );
   const id = td.parentElement.getAttribute("id");
 
+
   TodoCollection.splice(id, 1);
   localStorage.removeItem(id);
   localStorage.setItem("todos", JSON.stringify(TodoCollection));
+
+
 
   //td.parentElement.remove();
   //TodoCollection.splice(td.parentElement, 1);
   //localStorage.setItem("data", JSON.stringify(TodoCollection));
 
-  ListTodos();
-  new Calendar();
+    calendar.initCalendar()
+  ListTodosDay(calendar.selectedDate);
 };
 
 (() => {
